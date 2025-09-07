@@ -9,36 +9,28 @@ interface PortfolioItem {
   id: string;
   title: string;
   description: string;
-  videoUrl: string;
-  posterUrl?: string;
+  imageUrl: string;
 }
 
 const portfolioData: PortfolioItem[] = [
   {
     id: '1',
-    title: 'Decoding Human Physiology Through Data',
-    description: 'A responsive web platform that visualizes complex human physiological data in real-time using interactive dashboards and modern frontend frameworks.',
-    videoUrl: 'components/video/static.mp4',
+    title: 'AI Nexus',
+    description: 'An intelligent e-commerce interface that adapts to user behavior with AI-driven recommendations, dynamic product displays, and seamless mobile-first design.',
+    imageUrl: '/divcreator/components/video/1.png',
   },
   {
     id: '2',
-    title: 'AI Nexus',
-    description: 'An intelligent e-commerce interface that adapts to user behavior with AI-driven recommendations, dynamic product displays, and seamless mobile-first design.',
-    videoUrl: 'components/video/ai.mp4',
+    title: 'Alex Carter CyberShield',
+    description: 'An advanced cybersecurity dashboard for real-time threat analysis, penetration test reporting, and live vulnerability detection with an intuitive UI.',
+    imageUrl: '/divcreator/components/video/2.png',
   },
   {
     id: '3',
-    title: 'Alex Carter CyberShield',
-    description: 'An advanced cybersecurity dashboard for real-time threat analysis, penetration test reporting, and live vulnerability detection with an intuitive UI.',
-    videoUrl: 'components/video/dyna2-vid.mp4',
-  },
-   {
-    id: '4',
-    title: 'DevPort',
-    description: 'A progressive portfolio builder for developers and freelancers, featuring drag-and-drop customization, animated project showcases, and integrated resume tools.',
-    videoUrl: 'components/video/dynamic-vid.mp4',
-  },
-
+    title: 'Decoding Human Physiology Through Data',
+    description: 'A responsive web platform that visualizes complex human physiological data in real-time using interactive dashboards and modern frontend frameworks.',
+    imageUrl: '/divcreator/components/video/3.png',
+  }
 ];
 
 
@@ -106,7 +98,7 @@ const Portfolio: React.FC = () => {
       <div className="container">
         <div className="section-header">
           <h2>Our <span className="text-gradient">Portfolio</span></h2>
-          <p>Interactive Video Portfolio — A horizontal, swipe-enabled reel of our best work. Scroll through immersive previews with smooth animations.</p>
+          <p>Explore a curated selection of our best work. Swipe through our project showcases to see the quality and creativity we bring to every solution.</p>
         </div>
         
         <div className="swiper-container portfolio-swiper-container">
@@ -114,17 +106,12 @@ const Portfolio: React.FC = () => {
             {portfolioData.map((item) => (
               <div className="swiper-slide" key={item.id}>
                 <div className="portfolio-item-card">
-                  <div className="portfolio-video-wrapper">
-                    <video 
-                      src={item.videoUrl} 
-                      controls 
-                      poster={item.posterUrl}
-                      width="100%"
-                      aria-label={`${item.title} video preview`}
-                      preload="metadata" 
-                    >
-                      Your browser does not support the video tag.
-                    </video>
+                  <div className="portfolio-media-wrapper">
+                    <img
+                      src={item.imageUrl}
+                      alt={`${item.title} project showcase`}
+                      loading="lazy"
+                    />
                   </div>
                   <div className="portfolio-item-content">
                     <h3>{item.title}</h3>

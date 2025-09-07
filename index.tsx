@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -7,7 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Process from './components/Process';
-import Portfolio from './components/Portfolio'; // Added import
+import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTopButton from './components/BackToTopButton';
@@ -38,14 +37,24 @@ function App() {
 
   // Smooth scroll to section
   useEffect(() => {
-    const smoothScrollHandler = (event: MouseEvent) => {
+    const smoothScrollHandler = (event: Event) => {
       const target = event.target as HTMLAnchorElement;
-      if (target.matches('a[href^="#"]') && target.hash !== "") {
+      
+      // Check if the click came from a touch event (mobile) or mouse event
+      const isTouchEvent = event.type === 'touchstart';
+      const clickedElement = isTouchEvent 
+        ? document.elementFromPoint((event as TouchEvent).touches[0].clientX, (event as TouchEvent).touches[0].clientY)
+        : target;
+      
+      if (clickedElement && clickedElement.matches('a[href^="#"]') && (clickedElement as HTMLAnchorElement).hash !== "") {
         event.preventDefault();
-        const elementId = target.hash.substring(1);
+        const elementId = (clickedElement as HTMLAnchorElement).hash.substring(1);
         const element = document.getElementById(elementId);
+        
         if (element) {
-          const headerOffset = 80; // Adjust based on your fixed header's height
+          // Adjust header offset for mobile screens
+          const isMobile = window.innerWidth <= 768;
+          const headerOffset = isMobile ? 60 : 80;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -57,12 +66,15 @@ function App() {
       }
     };
 
+    // Add both mouse and touch event listeners
     document.addEventListener('click', smoothScrollHandler);
+    document.addEventListener('touchstart', smoothScrollHandler);
+    
     return () => {
       document.removeEventListener('click', smoothScrollHandler);
+      document.removeEventListener('touchstart', smoothScrollHandler);
     };
   }, []);
-
 
   return (
     <>
@@ -72,7 +84,7 @@ function App() {
         <About />
         <Services />
         <Process />
-        <Portfolio /> {/* Added Portfolio section */}
+        <Portfolio />
         <Contact />
       </main>
       <Footer />

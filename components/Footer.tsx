@@ -11,8 +11,8 @@ const Footer: React.FC = () => {
             <div className="social-links">
               <a href="#" className="social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
               <a href="#" className="social-link" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-              <a href="#" className="social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-              <a href="#" className="social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/div_creator?igsh=bnZ1bWVmcnF6dHRm" className="social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/div-creator-b18a92382/" className="social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
             </div>
           </div>
           <div className="footer-links">

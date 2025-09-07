@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="contact-text">
                   <h4>LinkedIn</h4>
-                  <p><a href="https://www.linkedin.com/in/div-creator-572821370?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gray)', textDecoration: 'none' }}>Connect on LinkedIn</a></p>
+                  <p><a href="https://www.linkedin.com/in/div-creator-b18a92382/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gray)', textDecoration: 'none' }}>Connect on LinkedIn</a></p>
                 </div>
               </div>
             </div>
