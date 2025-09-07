@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     
     <!-- SEO Meta Tags -->
     <title>Div Creator | Tech Solutions Agency - React</title>
@@ -22,7 +22,6 @@
     <meta name="twitter:description" content="Affordable web development, cybersecurity, and project assistance from a student-powered tech agency." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
 
-
     <!-- Font Awesome & Swiper styles -->
     <link
       rel="stylesheet"
@@ -32,19 +31,44 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    
+    <!-- Add basic mobile-friendly styles -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        width: 100%;
+      }
+      
+      #root {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    
 
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react": "https://esm.sh/react@^19.1.0"
-  }
-}
-</script>
-  <script type="module" crossorigin src="/divcreator/assets/index-CPqW9rCt.js"></script>
-  <link rel="stylesheet" crossorigin href="/divcreator/assets/index-BzGiqH1P.css">
-</head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0"
+        }
+      }
+    </script>
+    <script type="module" crossorigin src="/divcreator/assets/index-DcyVCi_8.js"></script>
+    <link rel="stylesheet" crossorigin href="/divcreator/assets/index-GKbQ6DCU.css">
+  </head>
 
   <body>
     <div id="root"></div>
