@@ -1210,21 +1210,42 @@ footer {
     /* Mobile Navigation */
     .mobile-menu-btn {
         display: block;
+        color: var(--light);
+        /* White initially for contrast on dark header */
+        /* Ensure dark button for visibility */
+        position: absolute;
+        /* Force position */
+        right: 20px;
+        /* Pin to right corner */
+        top: 50%;
+        transform: translateY(-50%);
+        /* Center vertically */
+        z-index: 1003;
     }
 
     nav ul {
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 60px;
+        /* Offset for header */
+        right: 0;
+        /* Align to right */
+        left: auto;
+        /* Override left */
         width: 100%;
-        height: 100vh;
-        background: var(--dark);
+        height: auto;
+        height: calc(100vh - 60px);
+        background: rgba(255, 255, 255, 0.98);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(-100%);
+        justify-content: flex-start;
+        align-items: flex-start;
+        /* Items aligned left inside */
+        padding-left: 30px;
+        padding-top: 30px;
+        transform: translateX(100%);
+        /* Slide from Right */
         transition: transform 0.3s ease;
         z-index: 1001;
+        box-shadow: var(--shadow);
     }
 
     nav ul.active {
@@ -1233,15 +1254,20 @@ footer {
 
     nav ul li {
         margin: 15px 0;
+        width: 100%;
+        /* Full width for clickable area */
+        text-align: left;
     }
 
     nav ul li a {
         font-size: 1.2rem;
-        color: var(--light);
+        color: var(--dark);
+        /* Dark text for contrast */
+        font-weight: 700;
     }
 
     header.scrolled nav ul li a {
-        color: var(--light);
+        color: var(--dark);
     }
 
     /* About section adjustments */
