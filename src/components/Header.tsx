@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 
+import logoImg from './video/logo.png';
+
 interface HeaderProps {
   isScrolled: boolean;
 }
@@ -42,7 +44,11 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
     <header id="header" className={isScrolled ? 'scrolled' : ''}>
       <div className="container header-container">
         <a href="#home" className="logo" onClick={closeMobileMenu}>
-          Div<span>Creator</span>
+          <img
+            src={logoImg}
+            alt="DivCreator"
+            className="logo-img"
+          />
         </a>
         <button
           className={`mobile-menu-btn ${isMobileMenuOpen ? 'menu-open' : ''}`}

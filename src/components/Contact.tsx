@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
-    
+
     // This is your live Formspree endpoint
     const FORM_ENDPOINT = 'https://formspree.io/f/mzzayzyg';
 
@@ -113,54 +113,54 @@ const Contact: React.FC = () => {
             </div>
           </div>
           <div className="contact-form">
-             <form onSubmit={handleSubmit} aria-labelledby="contact-form-heading">
-                <h3 id="contact-form-heading" className="sr-only">Contact Form</h3>
-                <div className="form-group">
-                    <label htmlFor="name">Full Name</label>
-                    <input type="text" id="name" name="name" className="form-control" placeholder="John Doe" required value={formData.name} onChange={handleChange} />
+            <form onSubmit={handleSubmit} aria-labelledby="contact-form-heading">
+              <h3 id="contact-form-heading" className="sr-only">Contact Form</h3>
+              <div className="form-group">
+                <label htmlFor="name">Full Name</label>
+                <input type="text" id="name" name="name" className="form-control" placeholder="John Doe" required value={formData.name} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email Address</label>
+                <input type="email" id="email" name="email" className="form-control" placeholder="you@example.com" required value={formData.email} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" className="form-control" placeholder="+91 12345 67890" required value={formData.phone} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="category">Which service are you interested in?</label>
+                <select id="category" name="category" className="form-control" required value={formData.category} onChange={handleChange}>
+                  <option>Web Design & Development</option>
+                  <option>Cybersecurity Services</option>
+                  <option>Student Project Assistance</option>
+                  <option>Video Editing & Photography</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="idea">Explain your ideas</label>
+                <textarea id="idea" name="idea" className="form-control" placeholder="Describe your project requirements or question here..." required value={formData.idea} onChange={handleChange}></textarea>
+              </div>
+              <button type="submit" className="btn" disabled={status === 'sending'}>
+                {status === 'sending' ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...
+                  </>
+                ) : 'Send Message'}
+              </button>
+              {status === 'sent' && (
+                <div className="form-success-message" role="status" aria-live="polite">
+                  <p>
+                    Thank you! Your message has been sent successfully. We will get back to you shortly.
+                  </p>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="email" id="email" name="email" className="form-control" placeholder="you@example.com" required value={formData.email} onChange={handleChange} />
+              )}
+              {status === 'error' && (
+                <div className="form-error-message" role="status" aria-live="polite">
+                  <p>
+                    Oops! Something went wrong. Please try again later or contact us directly via email.
+                  </p>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" className="form-control" placeholder="+91 12345 67890" required value={formData.phone} onChange={handleChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="category">Which service are you interested in?</label>
-                    <select id="category" name="category" className="form-control" required value={formData.category} onChange={handleChange}>
-                        <option>Web Design & Development</option>
-                        <option>Cybersecurity Services</option>
-                        <option>Student Project Assistance</option>
-                        <option>Video Editing & Photography</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="idea">Explain your ideas</label>
-                    <textarea id="idea" name="idea" className="form-control" placeholder="Describe your project requirements or question here..." required value={formData.idea} onChange={handleChange}></textarea>
-                </div>
-                <button type="submit" className="btn" disabled={status === 'sending'}>
-                  {status === 'sending' ? (
-                    <>
-                      <i className="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...
-                    </>
-                  ) : 'Send Message'}
-                </button>
-                 {status === 'sent' && (
-                  <div className="form-success-message">
-                    <p>
-                      Thank you! Your message has been sent successfully. We will get back to you shortly.
-                    </p>
-                  </div>
-                )}
-                {status === 'error' && (
-                    <div className="form-error-message">
-                        <p>
-                            Oops! Something went wrong. Please try again later or contact us directly via email.
-                        </p>
-                    </div>
-                )}
+              )}
             </form>
           </div>
         </div>

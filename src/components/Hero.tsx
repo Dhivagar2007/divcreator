@@ -24,10 +24,10 @@ const Hero: React.FC = () => {
       while (container.firstChild) {
         container.removeChild(container.firstChild);
       }
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 8; i++) {
         const element = document.createElement('div');
         element.classList.add('floating-element');
-        
+
         const size = Math.random() * 15 + 5;
         element.style.width = `${size}px`;
         element.style.height = `${size}px`;
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
         element.style.top = `${Math.random() * 100}%`;
         element.style.animationDuration = `${Math.random() * 15 + 10}s`;
         element.style.animationDelay = `${Math.random() * 5}s`;
-        
+
         container.appendChild(element);
       }
     }
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
         <div className="hero-content">
           <h1>Div Creator: <span className="text-gradient">Tech Solutions</span> For The Future</h1>
           <p>We specialize in web development, cybersecurity, and student project assistance, delivering powerful results through cutting-edge technology, creative design, and affordable solutions tailored to your needs.
-</p>
+          </p>
           <div className="hero-btns">
             <a href="#services" className="btn">Our Services</a>
             <a href="#contact" className="btn btn-outline">Get Started</a>

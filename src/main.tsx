@@ -38,14 +38,25 @@ function App() {
 
   // Smooth scroll to section
   useEffect(() => {
-    const smoothScrollHandler = (event: MouseEvent) => {
-      const target = event.target as HTMLAnchorElement;
-      if (target.matches('a[href^="#"]') && target.hash !== "") {
+    const smoothScrollHandler = (event: MouseEvent | TouchEvent) => {
+      // Check if the click came from a touch event (mobile) or mouse event
+      const isTouchEvent = event.type === 'touchstart';
+      // For touch events use the first touch point, for mouse use the target directly
+      const eventTarget = isTouchEvent
+        ? document.elementFromPoint((event as TouchEvent).touches[0].clientX, (event as TouchEvent).touches[0].clientY)
+        : event.target;
+
+      const anchor = (eventTarget as Element)?.closest('a');
+
+      if (anchor && anchor.getAttribute('href')?.startsWith('#') && anchor.hash !== "") {
         event.preventDefault();
-        const elementId = target.hash.substring(1);
+        const elementId = anchor.hash.substring(1);
         const element = document.getElementById(elementId);
+
         if (element) {
-          const headerOffset = 80; // Adjust based on your fixed header's height
+          // Adjust header offset for mobile screens
+          const isMobile = window.innerWidth <= 768;
+          const headerOffset = isMobile ? 60 : 80;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
