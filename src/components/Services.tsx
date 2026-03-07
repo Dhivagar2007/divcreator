@@ -28,16 +28,16 @@ const servicesData: Service[] = [
     ]
   },
   {
-    title: 'Cybersecurity Solutions',
-    icon: 'fas fa-shield-alt',
-    shortDescription: 'Protect your enterprise with industry-leading security assessments and strategic risk management.',
+    title: 'Offensive Security & VAPT',
+    icon: 'fas fa-user-secret',
+    shortDescription: 'Expert-led manual penetration testing and SOC support by eJPT-certified freelance specialists.',
     details: [
-      'Comprehensive Vulnerability Assessments (VAPT)',
-      'Web & Mobile Application Penetration Testing',
-      'Security Compliance Audits',
-      'Incident Response & Threat Mitigation',
-      'Secure Code Review & Implementation',
-      'Employee Security Awareness Training'
+      'Manual Vulnerability Assessment & Penetration Testing (VAPT)',
+      'Advanced Web & Mobile App Logic Flaw Exploitation',
+      'On-Demand SOC Support & Real-time Threat Monitoring',
+      'API Security Audits & Secure Architecture Reviews',
+      'Manual Secure Code Review & Developer Remediation',
+      'Compliance-Ready Reporting for Startups & B2B SaaS'
     ]
   },
   {
