@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import img1 from './video/1.png';
 import img2 from './video/2.png';
-import img3 from './video/3.png';
 
 // Inform TypeScript about the global Swiper & GSAP objects from CDN
 declare var Swiper: any;
@@ -13,26 +12,23 @@ interface PortfolioItem {
   title: string;
   description: string;
   imageUrl: string;
+  link: string;
 }
 
 const portfolioData: PortfolioItem[] = [
   {
     id: '1',
-    title: 'AI Nexus',
-    description: 'An intelligent e-commerce interface that adapts to user behavior with AI-driven recommendations, dynamic product displays, and seamless mobile-first design.',
+    title: 'High-Conversion Landing Page',
+    description: 'A premium landing page designed for luxury brands like coffee roasteries or watch collections, featuring glassmorphism navigation, a dynamic typing hero section, scroll-based animations (AOS), a custom product slider with Swiper.js, and a real email capture system using EmailJS. Optimized with .webp assets for ultra-fast performance and maximum user conversion.',
     imageUrl: img1,
+    link: 'https://dhivagar2007.github.io/Projects-/',
   },
   {
     id: '2',
-    title: 'Alex Carter CyberShield',
-    description: 'An advanced cybersecurity dashboard for real-time threat analysis, penetration test reporting, and live vulnerability detection with an intuitive UI.',
+    title: 'Digital Menu Web App',
+    description: 'A modern digital menu solution for cafes and food businesses with real-time search filtering, multi-category selection, and an interactive frontend cart with local storage persistence. Built with a responsive grid system and integrated WhatsApp ordering for seamless customer experience.',
     imageUrl: img2,
-  },
-  {
-    id: '3',
-    title: 'Decoding Human Physiology Through Data',
-    description: 'A responsive web platform that visualizes complex human physiological data in real-time using interactive dashboards and modern frontend frameworks.',
-    imageUrl: img3,
+    link: 'https://dhivagar2007.github.io/brewtopia/',
   }
 ];
 
@@ -114,7 +110,7 @@ const Portfolio: React.FC = () => {
           <div className="swiper-wrapper">
             {displayData.map((item) => (
               <div className="swiper-slide" key={item.uniqueId}>
-                <div className="portfolio-item-card">
+                <a href={item.link} target="_blank" rel="noopener noreferrer" className="portfolio-item-card" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                   <div className="portfolio-media-wrapper">
                     <img
                       src={item.imageUrl}
@@ -126,7 +122,7 @@ const Portfolio: React.FC = () => {
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
